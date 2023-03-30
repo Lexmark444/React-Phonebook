@@ -1,3 +1,5 @@
+
+
 export const firebaseConfig = {
   apiKey: "AIzaSyCXIbjilFzyK6n9VMINa7jDMwzpIbS6R1A",
   authDomain: "sp-fs-react-phonebook.firebaseapp.com",
