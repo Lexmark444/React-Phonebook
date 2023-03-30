@@ -26,17 +26,16 @@ const ContactForm = (props: ContactFormProps) => {
     if (props.id && props.id.length > 0) {
       server_calls.update(props.id[0], data)
       console.log(`Updated: ${ data.name } ${ props.id}`);
-      // setTimeout(() => {window.location.reload()}, 1000);
-      // event.target.reset()
+      setTimeout(() => {window.location.reload()}, 1000);
+      event.target.reset()
     } else {
-      // use dispatch to update our state in our store
       dispatch(chooseName(data.name));
       dispatch(chooseEmail(data.email));
       dispatch(choosePhone(data.phone_number));
       dispatch(chooseAddress(data.address));
 
       server_calls.create(store.getState())
-      // setTimeout( () => {window.location.reload()}, 1000);
+      setTimeout( () => {window.location.reload()}, 1000);
     }
     
   }
@@ -56,7 +55,7 @@ const ContactForm = (props: ContactFormProps) => {
         </div>
         <div>
           <label htmlFor="phone number">Phone number</label>
-          <Input {...register('phone number')} name="phone number" placeholder="Phone Number"/>
+          <Input {...register('phone_number')} name="phone_number" placeholder="Phone Number"/>
         </div>
         <div>
           <label  htmlFor="address">Address</label>

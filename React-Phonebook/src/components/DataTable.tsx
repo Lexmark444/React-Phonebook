@@ -2,7 +2,7 @@ import Button from "./Button"
 import Modal from "./Modal"
 import { useState } from "react";
 import { server_calls } from '../api/server';
-import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import { DataGrid, GridColDef, gridPaginationModelSelector } from '@mui/x-data-grid';
 import { useGetData } from "../custom-hooks/FetchData";
 
 const columns: GridColDef[] = [
@@ -55,11 +55,12 @@ const deleteData = () => {
             <Button onClick={deleteData} className="p-3 m-3 bg-slate-300 rounded hover:bg-slate-800 hover:text-white" >Delete</Button>
         </div>
         <div className={ open ? "hidden" : "container mx-10 my-5 flex flex-col"}
-          style={{ height:400, width: '100%' }}
+          style={{ height:450, width: '100%' }}
           >
             <h2 className="p-3 bg-slate-300 my-2 rounded">My Contacts</h2>
             <DataGrid rows={contactData} columns={columns} 
-            // rowsPerPageOptions={[5]}
+            // how to make page size a defined number
+            autoPageSize
             checkboxSelection={true}
             onRowSelectionModelChange = { (item: any) => {
               setSelectionModel(item)
